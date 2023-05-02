@@ -1,79 +1,75 @@
-// Wywałanie funkcji computerMove
+//Funkcja computerMove
 
-let randomNumber = Math.floor(Math.random() * 3 + 1);
+function getMoveName(argMoveId){
+    if(argMoveId == 1){
+      return 'kamień';}
+    else if(argMoveId == 2){
+        return 'papier';}
+    else if(argMoveId == 3){
+        return 'nozyce';}
 
-console.log('Wylosowana liczba to: ' + randomNumber);
-
-let computerMove = 'nieznany ruch';
-
-if(randomNumber == 1){
-  computerMove = 'kamień';
-}
-else if(randomNumber == 2){
-    computerMove = 'papier';
+    printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+    return 'nieznany ruch';
   }
-else if (randomNumber == 3){
-    computerMove = 'nozyce';
-  }
+  
+    // Wywałanie funkcji argComputerMove
 
-printMessage('Mój ruch to: ' + computerMove);
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-// Wywałanie funkcji playerMove
+    console.log('Wylosowana liczba to: ' + randomNumber);
 
-let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+    let argComputerMove = getMoveName(randomNumber);
 
-console.log('Gracz wpisał: ' + playerInput);
+    // Wywałanie funkcji argPlayerMove
 
-let playerMove = 'nieznany ruch';
+    let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 
-if(playerInput == '1'){
-  playerMove = 'kamień';
-}
-else if(playerInput == '2'){
-    playerMove = 'papier';
-  }
-else if(playerInput == '3'){
-    playerMove = 'nozyce';
-  }
+    console.log('Gracz wpisał: ' + playerInput);
 
-printMessage('Twój ruch to: ' + playerMove);
+    let argPlayerMove = getMoveName(playerInput);
 
-// Wywałanie funkcji wynik
+    // Funkcja wynik
 
-//Kamien
-if( computerMove == 'kamień' && playerMove == 'kamień'){
-    printMessage('Remis!');
-  }
-else if( computerMove == 'kamień' && playerMove == 'papier'){
-    printMessage('Ty wygrywasz!');
-  }
-else if( computerMove == 'kamień' && playerMove == 'nozyce'){
-    printMessage('Ja wygrywam!');
-  }
-
-//Papier
-else if( computerMove == 'papier' && playerMove == 'kamień'){
-    printMessage('Ja wygrywam!');
-  }
-else if( computerMove == 'papier' && playerMove == 'papier'){
-    printMessage('Remis!');
-  }
-else if( computerMove == 'papier' && playerMove == 'nozyce'){
-    printMessage('Ty wygrywasz!');
-  }
-
-//Nozyce
-  else if( computerMove == 'nozyce' && playerMove == 'kamień'){
-    printMessage('Ty wygrywasz!');
-  }
-else if( computerMove == 'nozyce' && playerMove == 'papier'){
-    printMessage('Ja wygrywam!');
-  }
-else if( computerMove == 'nozyce' && playerMove == 'nozyce'){
-    printMessage('Remis!');
+    console.log('moves:', argComputerMove, argPlayerMove);
+    function displayResult(argComputerMove, argPlayerMove){
+    printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
+    //Kamien
+    if( argComputerMove == 'kamień' && argPlayerMove == 'kamień'){
+        printMessage('Remis!');
+      }
+    else if( argComputerMove == 'kamień' && argPlayerMove == 'papier'){
+        printMessage('Ty wygrywasz!');
+      }
+    else if( argComputerMove == 'kamień' && argPlayerMove == 'nozyce'){
+        printMessage('Ja wygrywam!');
+      }
+    //Papier
+      else if( argComputerMove == 'papier' && argPlayerMove == 'kamień'){
+        printMessage('Ja wygrywam!');
+      }
+    else if( argComputerMove == 'papier' && argPlayerMove == 'papier'){
+        printMessage('Remis!');
+      }
+    else if( argComputerMove == 'papier' && argPlayerMove == 'nozyce'){
+        printMessage('Ty wygrywasz!');
+      }
+    //Nozyce
+      else if( argComputerMove == 'nozyce' && argPlayerMove == 'kamień'){
+        printMessage('Ty wygrywasz!');
+      }
+    else if( argComputerMove == 'nozyce' && argPlayerMove == 'papier'){
+        printMessage('Ja wygrywam!');
+      }
+    else if( argComputerMove == 'nozyce' && argPlayerMove == 'nozyce'){
+        printMessage('Remis!');
+      }
+    //Nieznany ruch
+    else if(argPlayerMove == 'nieznany ruch'){
+        printMessage('Wykonałeś nieznany ruch!');
+      }   
   }
 
-//Nieznany ruch
-else if(playerMove == 'nieznany ruch'){
-    printMessage('Wykonałeś nieznany ruch!');
-  } 
+    // Wywołanie funkcji wyświetlania wyniku
+  
+    displayResult(argComputerMove, argPlayerMove);
+  
